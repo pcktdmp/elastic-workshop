@@ -1,5 +1,5 @@
 # elastic-workshop
-A repository that can be used for Elastic Cloud workshops
+A repository that can be used for Elastic Cloud workshops.
 
 # Required knowledge
 
@@ -36,13 +36,13 @@ It should return with an error similar to the following:
 2020/11/08 13:45:19 Error getting response: unsupported protocol scheme ""
 ```
 
-This is according to plan since we need to configure the application to send its logs to our Elastic Cloud instance:
+This is expected since we need to configure the application to send its logs to our Elastic Cloud cluster:
 
 ```
 docker run -ti -e ES_CUSTOM_APP_NAME=<name_you_come_up_with> -e ES_CUSTOM_INDEX_NAME=<student_name> -e ES_USERNAME=user -e ES_PASSWORD=password -e ES_URL=https://example.com pcktdmp/logging-container
 ```
 
-If everything is correctly configured on the application side you should output similar to the following:
+If everything is correctly configured you should see output on your terminal similar to the following:
 
 ```
 2020/11/08 14:00:51 {"message" : "coolapp;UNKNOWN->ExecutionID:3b105c04-8b11-4690-8646-bb18b4d1e77a@1604844051"}
@@ -51,15 +51,15 @@ If everything is correctly configured on the application side you should output 
 2020/11/08 14:00:56 [400 Bad Request] Error indexing document
 ```
 
-This tells us that the application is able to send its log data to Elastic Cloud correctly but something at the processing side seems to go wrong, this is because we are trying to send to an "ingest pipeline" which has not been created yet.
+This tells us that the application is able to send log data to Elastic Cloud correctly, but sadly something at the processing side seems to go wrong. This is occurs because we are trying to send to an "ingest pipeline" which has not been created yet.
 
 ### Part 2: Setup an initial ingest pipeline
 
-Go to the Elastic Cloud deployment URL that the instructor has provided and login via "Log in with Elasticsearch" with the provided credentials.
+Go to the Elastic Cloud deployment URL that the instructor has provided and login via "Log in with Elasticsearch" with the also provided credentials.
 
 Click in the top left "hamburger" icon and go to "Dev Tools".
 
-You see the "Dev Console" in front of you where we can send API calls with to the Elastic Cloud deployment which you are going to use heavily in this workshop.
+You see the "Dev Console" in front of you which we use to send API calls to the Elastic Cloud deployment. The Dev Tools are you going to use heavily in this workshop.
 
 Going back to our outstanding error `[400 Bad Request] Error indexing document`; this is caused by the fact we don't have an "ingest pipeline" yet for our application.
 
@@ -102,15 +102,15 @@ As you might suspect the value of `message` in this example is the data we are g
 ### Part 3: Create an index pattern and search your data
 
 So now we have Elastic Cloud made ingest our data through a pipeline. Great.
-But it's not much of use when you can't search it which we are going to solve with creating an initial "index pattern".
+But this is not much of use when you can't search it. We are going to solve with creating an initial "index pattern".
 
-Go again to the "hamburger icon" in the top left again and navigate to `Stack Management` and then search for `Index Patterns`.
+Go again to the "hamburger icon" in the top left and navigate to `Stack Management` and then search for `Index Patterns`.
 
 Click on `Create Index Pattern`.
 
 Fill in `<student_name>` for the `Index pattern name` field and click `Next step` and finally on `Create index pattern`.
 
-Because we now have created an "index pattern" we can now search our ingested data by navigating via the "hamburger icon" to `Discover` and in the dropdown where `kibana_sample_data_logs` is selected by default select `<student_name>` as your index pattern.
+Because we now have created an "index pattern" we can now search our ingested data by navigating via the "hamburger icon" to `Discover. In the dropdown where `kibana_sample_data_logs` is selected by default select `<student_name>` as your index pattern.
 
 If the stars are properly aligned you should now see your data being ingested into the index called `<student_name>` and you can search the data set like your favorite search engine.
 
@@ -145,7 +145,7 @@ PUT _ingest/pipeline/<student_name>
 }
 ```
 
-When looking `Discover` you see that the log data that is being indexed is without a timestamp. How inconvenient.
+When looking at `Discover` you see that the log data that is being indexed is without a timestamp. How inconvenient.
 
 As you might have seen on `stdout` of your container behind the `@` sign there is something that looks like an epoch timestamp. It actually is.
 
@@ -175,7 +175,7 @@ PUT _ingest/pipeline/<student_name>
 }
 ```
 
-To activate this `@timestamp` mechanism we need to re-create our earlier created index pattern by going via the "hamburger icon" to `Stack Management`, `Index Patterns`, click on your earlier created pattern and delete it via the "trash can" icon.
+To activate this `@timestamp`-mechanism we need to re-create our earlier created index pattern by going via the "hamburger icon" to `Stack Management`, `Index Patterns`, click on your earlier created pattern and delete it via the "trash can" icon.
 
 Follow the same steps as in Part 3 but you will now be prompted for `Select a primary time field for use with the global time filter.`.
 Select here the `@timestamp` field and click `Create index pattern`.
