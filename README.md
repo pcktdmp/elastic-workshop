@@ -20,7 +20,7 @@ https://docs.docker.com/get-docker/
 
 ### Part 0: Workshop Notes
 
-You also got a student ID assigned in the beginning of the workshop, please use this for `<student_name>`.
+You also got a student ID assigned in the beginning of the workshop, please use this for `<student_name>`
 when being used inside this workshop.
 
 ### Part 1: Start an application that sends logs to Elastic Cloud
