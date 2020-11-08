@@ -110,7 +110,7 @@ Click on `Create Index Pattern`.
 
 Fill in `<student_name>` for the `Index pattern name` field and click `Next step` and finally on `Create index pattern`.
 
-Because we now have created an "index pattern" we can now search our ingested data by navigating via the "hamburger icon" to `Discover. In the dropdown where `kibana_sample_data_logs` is selected by default select `<student_name>` as your index pattern.
+Because we now have created an "index pattern" we can now search our ingested data by navigating via the "hamburger icon" to `Discover`. In the dropdown where `kibana_sample_data_logs` is selected by default select `<student_name>` as your index pattern.
 
 If the stars are properly aligned you should now see your data being ingested into the index called `<student_name>` and you can search the data set like your favorite search engine.
 
