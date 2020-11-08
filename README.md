@@ -196,9 +196,9 @@ Use the following documentation to achieve this goal:
 
 Expected keys with corresponding values inside Elastic Cloud:
 
-* appname
-* loglevel
-* execution_id
+* `appname`
+* `loglevel`
+* `execution_id`
 
 Hint: you can use the built-in ingest pipeline simulator in advance before actually applying your pipeline configuration.
 
