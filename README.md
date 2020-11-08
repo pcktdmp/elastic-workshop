@@ -185,7 +185,7 @@ If you now go to `Discover` you will be pleased with a timeline of your log data
 
 Now you are going to develop yourself a Grok Expression within the pipeline.
 
-Assignment: For each field in the RAW log message create a key value pair via Grok expressions.
+Assignment: For each field in the RAW log message create a key-value pair via Grok expressions.
 
 Use the following documentation to achieve this goal:
 
