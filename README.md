@@ -175,7 +175,7 @@ PUT _ingest/pipeline/<student_name>
 }
 ```
 
-To activate this `@timestamp`-mechanism we need to re-create our earlier created index pattern by going via the "hamburger icon" to `Stack Management`, `Index Patterns`, click on your earlier created pattern and delete it via the "trash can" icon.
+To activate this `@timestamp`-mechanism we need to re-create our earlier created index pattern by going via the "hamburger icon" to `Stack Management`, `Index Patterns`, click on your earlier created index pattern called `<student_name>` and delete it via the "trash can" icon.
 
 Follow the same steps as in Part 3 but you will now be prompted for `Select a primary time field for use with the global time filter.`.
 Select here the `@timestamp` field and click `Create index pattern`.
