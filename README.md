@@ -36,7 +36,7 @@ It should return with an error similar to the following:
 2020/11/08 13:45:19 Error getting response: unsupported protocol scheme ""
 ```
 
-This is expected since we need to configure the application to send its logs to our Elastic Cloud cluster:
+This is expected since we need to configure the application to send its logs to our Elastic Cloud cluster, please replace the passed environment variables with received values from the instructor.
 
 ```
 docker run -ti -e ES_CUSTOM_APP_NAME=<name_you_come_up_with> -e ES_CUSTOM_INDEX_NAME=<student_name> -e ES_USERNAME=user -e ES_PASSWORD=password -e ES_URL=https://example.com pcktdmp/logging-container
